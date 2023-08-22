@@ -13,15 +13,19 @@ session_set_cookie_params([
 
 session_start();
 
-if (!isset($_SESSION['lastRegeneration'])) {
-    regenerate_session(); 
-}
-else{
-    $intervalo = 60*30;
-    if ($_SESSION['lastRegeneration'] - time() >= $intervalo) {
-        regenerate_session();
+
+    if (!isset($_SESSION['lastRegeneration'])) {
+        regenerate_session(); 
     }
-}
+    else{
+        $intervalo = 60*60;
+        if ($_SESSION['lastRegeneration'] - time() >= $intervalo) {
+            regenerate_session();
+        }
+    }
+
+
+
 function regenerate_session(){
     session_regenerate_id(true);
     $_SESSION['lastRegeneration'] = time();

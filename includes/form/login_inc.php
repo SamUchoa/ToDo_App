@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $_SESSION['userId'] = $user['userId'];
         $_SESSION['userName'] = htmlspecialchars($user['userName']);
 
-        session_regenerate_id(true);
-       
+        $_SESSION['lastlastRegeneration'] = time();
+        
         header('location: ../../login.php');
         die();
 

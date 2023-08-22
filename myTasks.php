@@ -1,6 +1,7 @@
 <?php
-include_once 'includes/sessionConfig.php';
-include_once 'includes/view/header.php';
+require_once 'includes/sessionConfig.php';
+require_once 'includes/view/tasks_view_inc.php';
+require_once 'includes/view/header.php';
 ?>
         <main class="p-5 ">
 

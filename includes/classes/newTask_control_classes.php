@@ -29,10 +29,6 @@ class newTaskControl extends newTaskModel{
 
     }
 
-    public function myTasks(){
-        $id = $this->taskOwner;
-        $tasks = $this->getTasks($id);
-        return $tasks;
-    }
+
 
 }

@@ -12,6 +12,3 @@ function errorOutput(){
     }
 }
 
-function taskOutput(){
-    
-}

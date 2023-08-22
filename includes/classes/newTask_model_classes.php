@@ -16,16 +16,5 @@ class newTaskModel extends dbConnect {
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-    protected function getTasks(int | string $taskOwner){
-        
-        $query = 'SELECT * FROM Tasks WHERE userId = :taskOwner';
 
-        $stmt = $this->connect()->prepare($query);
-
-        $stmt->bindParam(':taskOwner', $taskOwner);
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
 }
