@@ -4,7 +4,7 @@ include_once 'includes/view/header.php';
 include_once 'includes/view/view_inc.php';
 
 ?>
-<main class="p-5" >
+<main class="p-5 h-75" >
     <section class="border border-secondary border-3 fs-1  d-block list-group text-start p-2 p-lg-5">
     
         <form action="includes/form/newTask_inc.php" method="post">
@@ -19,7 +19,7 @@ include_once 'includes/view/view_inc.php';
             <div class="mb-lg-1 mb-4">
 
             <label for="taskContent" class="form-label"></label>
-            <textarea class="form-control" name="taskContent" id="taskContent" rows="12"></textarea>
+            <textarea class="form-control" name="taskContent" id="taskContent" rows="5" style="resize: none;"></textarea>
 
 
             </div>
