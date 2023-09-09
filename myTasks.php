@@ -28,6 +28,8 @@ require_once 'includes/view/header.php';
                         <div class="accordion-collapse collapse fs-5 text-justify text-break" id="taskContent<?=$taskId?>">
                         <?=$task['taskContent']?>
                         </div>
+                        <span><button>excluir</button></span>
+                        <span><button>editar</button></span>
                         
                     </div>
 

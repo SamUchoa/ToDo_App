@@ -32,6 +32,7 @@
                         } else{
                         ?>  
                             <li class="nav-item"><a href="myTasks.php" class="nav-link">My Tasks</a></li>
+                            <li class="nav-item"><a href="includes/logoff.php" class="nav-link">Logoff</a></li>
                         <?php 
                         }
                         ?>
