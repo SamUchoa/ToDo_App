@@ -25,11 +25,15 @@ require_once 'includes/view/header.php';
                             <?=$task['taskTitle']?>
                             </button>
                         </h2>
-                        <div class="accordion-collapse collapse fs-5 text-justify text-break" id="taskContent<?=$taskId?>">
-                        <?=$task['taskContent']?>
+                        <div class="accordion-collapse collapse fs-5 text-justify text-break justify-content-between row" id="taskContent<?=$taskId?>">
+                        <div class="col-lg-9 col-sm-5 p-0"><?=$task['taskContent']?></div>
+                        <div class="col-lg-3 col-sm-12 btn-group" role="group">
+                        <button class="btn bg-danger p-0 btn-danger" type="button">excluir</button>
+                        <button class="btn bg-primary p-0 btn-primary" type="button">editar</button>
                         </div>
-                        <span><button>excluir</button></span>
-                        <span><button>editar</button></span>
+
+                        </div>
+
                         
                     </div>
 
