@@ -14,4 +14,13 @@ class tasksModel extends dbConnect{
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    protected function deleteTasks($taskId){
+        $query = 'DELETE FROM tasks WHERE taskId = :taskId';
+
+        $stmt = $this->connect()->prepare($query);
+
+        $stmt->bindParam(':taskId', $taskId);
+
+        $stmt->execute();
+    }
 }

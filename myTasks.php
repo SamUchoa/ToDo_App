@@ -2,12 +2,16 @@
 require_once 'includes/sessionConfig.php';
 require_once 'includes/view/tasks_view_inc.php';
 require_once 'includes/view/header.php';
+
+if (!isset($_SESSION['userId'])){
+    header('location: login.php');
+}
 ?>
         <main class="p-5 h-auto">
 
             <section class="border border-secondary border-3 fs-1 d-flex list-group text-center">
                 <div class="list-group-item">
-                    <a class="w-100 text-decoration-none text-black" href="newTask.php">
+                    <a tabindex="1" class="w-100 text-decoration-none text-black" href="newTask.php">
                         <span class=""><img src="img/plus.png" width="30px" alt="+"></span> New task
                     </a> 
                 </div> 
@@ -15,22 +19,22 @@ require_once 'includes/view/header.php';
                 <div class="accordion">
 
                 <?php
-                    $taskId = 0;
+                    $taskOrder = 2;
                     foreach (taskOutput() as $task) {
                 ?>
                     
                     <div class="accordion-item list-group-item p-0">
                         <h2 class="accordion-header">
-                            <button class="bg-trasparent border-0 text-break container-fluid p-2" type="button" data-bs-toggle="collapse" data-bs-target="#taskContent<?=$taskId?>">
+                            <button class="bg-trasparent border-0 text-break container-fluid p-2" type="button" data-bs-toggle="collapse" data-bs-target="#taskContent<?=$taskOrder?>" tabindex="<?=$taskOrder?>">
                             <?=$task['taskTitle']?>
                             </button>
                         </h2>
-                        <div class="accordion-collapse collapse fs-5 text-justify text-break justify-content-between row" id="taskContent<?=$taskId?>">
+                        <div class="accordion-collapse collapse fs-5 text-justify text-break justify-content-between row" id="taskContent<?=$taskOrder?>">
                         <div class="col-lg-9 col-sm-5 p-0"><?=$task['taskContent']?></div>
-                        <div class="col-lg-3 col-sm-12 btn-group" role="group">
-                        <button class="btn bg-danger p-0 btn-danger" type="button">excluir</button>
-                        <button class="btn bg-primary p-0 btn-primary" type="button">editar</button>
-                        </div>
+                        <form action="includes/form/myTasks.php" method="post" class="col-lg-3 col-sm-12 btn-group" role="group">
+                                <button class="btn bg-danger p-0 btn-danger" type="submit" name="delete" value="<?=$task['taskId']?>">excluir</button>
+                                <button class="btn bg-primary p-0 btn-primary" type="submit" name="update" value="<?=$task['taskId']?>">editar</button>
+                        </form>
 
                         </div>
 
@@ -39,7 +43,7 @@ require_once 'includes/view/header.php';
 
 
                 <?php
-                        $taskId++;
+                        $taskOrder++;
                     }
                 ?>
                 </div>
