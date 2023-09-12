@@ -8,4 +8,7 @@ class tasksControl extends tasksModel{
     public function removeTasks($taskId){
         $this->deleteTasks($taskId);
     }
+    public function editTasks($taskId , $newContent){
+        $this->updateTasks($taskId, $newContent);
+    }
 }

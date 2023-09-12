@@ -30,10 +30,13 @@ if (!isset($_SESSION['userId'])){
                             </button>
                         </h2>
                         <div class="accordion-collapse collapse fs-5 text-justify text-break justify-content-between row" id="taskContent<?=$taskOrder?>">
-                        <div class="col-lg-9 col-sm-5 p-0"><?=$task['taskContent']?></div>
-                        <form action="includes/form/myTasks.php" method="post" class="col-lg-3 col-sm-12 btn-group" role="group">
-                                <button class="btn bg-danger p-0 btn-danger" type="submit" name="delete" value="<?=$task['taskId']?>">excluir</button>
-                                <button class="btn bg-primary p-0 btn-primary" type="submit" name="update" value="<?=$task['taskId']?>">editar</button>
+                        <form action="includes/form/myTasks.php" method="post" class="p-0 align-items-center">
+                                <input class="w-50 border-0" name="content" value="<?=$task['taskContent']?>">
+                                <span class="col-lg-3 col-sm-12 btn-group" role="group">
+                                    <button class="btn bg-danger p-0 btn-danger" type="submit" name="delete" value="<?=$task['taskId']?>">excluir</button>
+                                    <button class="btn bg-primary p-0 btn-primary" type="submit" name="update" value="<?=$task['taskId']?>">editar</button>
+                                </span>
+
                         </form>
 
                         </div>

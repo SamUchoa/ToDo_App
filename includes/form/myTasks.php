@@ -3,6 +3,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     
     $action = $_POST;
 
+
     try {
         require_once '../database/db_inc.php';
         require_once '../classes/tasks_model_classes.php';
@@ -12,6 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         if (isset($action['delete'])){
             $taskModify->removeTasks($action['delete']);
+        }
+
+        else {
+            $newContent = $_POST['content'];
+            $taskModify->editTasks($action['update'], $newContent);
         }
 
         $_SESSION['lastlastRegeneration'] = time();

@@ -23,4 +23,14 @@ class tasksModel extends dbConnect{
 
         $stmt->execute();
     }
+    protected function updateTasks($taskId, $newContent){
+        $query = 'UPDATE tasks SET taskContent = :newContent WHERE taskId = :taskId';
+
+        $stmt = $this->connect()->prepare($query);
+
+        $stmt->bindParam(':taskId', $taskId);
+        $stmt->bindParam(':newContent', $newContent);
+
+        $stmt->execute();
+    }
 }
