@@ -16,7 +16,7 @@ CREATE TABLE tasks(
     userId int(11) NOT NULL,
     taskTitle varchar(75) NOT NULL,
     taskContent varchar(500),
-    taskCreation timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    taskLastEdit timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    taskCreation timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    taskLastEdit timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE
 )CHARSET utf8mb4 ENGINE INNODB;
